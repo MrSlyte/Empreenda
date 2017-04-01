@@ -29,15 +29,6 @@
         <header>
             <div class="container">
                 <div class="logo"><img src="assets/img/logo.svg" alt="Logo site header" title="Logo Empreenda"></div>
-                <div class="clear"></div>
-                <div class="principal">
-                    <h1><strong>SEJA EMPREENDEDOR</strong></h1>
-                    <p>Aqui vai um subtítulo</p>
-                    <ul>
-                        <li><a href="/">CONHEÇA A INICIATIVA</a></li>
-                        <li><a href="/about">CADASTRE-SE</a></li>
-                    </ul>
-                </div>
             </div>
         </header>
         <main>

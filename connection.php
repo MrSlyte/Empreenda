@@ -3,4 +3,4 @@
 $cfg = ActiveRecord\Config::instance();
 $cfg->set_model_directory(ROOT."app/models");
 $cfg->set_connections(array('development' =>
-    'mysql://root:@localhost/loja?charset=utf8'));
+    'mysql://root:@localhost/empreenda?charset=utf8'));

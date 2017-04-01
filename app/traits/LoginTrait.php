@@ -1,7 +1,7 @@
 <?php
 namespace app\traits;
 
-trait login{
+trait LoginTrait{
     private $campos;
     private $campo;
     private $sqlCampo;

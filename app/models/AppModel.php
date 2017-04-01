@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-abstract class appModel extends \ActiveRecord\Model implements \app\interfaces\ISql{
+abstract class AppModel extends \ActiveRecord\Model implements \app\interfaces\ISql{
     public static function atualizar($id, $attributes) {
         $atualizar = parent::find($id);
         $atualizar->update_attributes($attributes);

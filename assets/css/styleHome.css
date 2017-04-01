@@ -1,77 +1,25 @@
-/*-----GLOBAL-----*/
-*{margin: 0;padding: 0;}
-body{font-family: 'Open Sans';font-weight: 400;font-size: 14px;}
-h3{text-align: center;margin-top: 5%;}
-
-header {
-    color: #fff;
-    height: 200%;
-    text-align: center;
-    background-image: url('../img/bg.jpg');
-    background-color: #000000;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center center;
-}
-main{background-color: #3D0DFF;color: #fff;}
-header .logo{}
-header .logo img{transition-duration: 0.5s;transition-property: all;width: 300px;margin-top: 10%;}
-header .logo img:hover{opacity: 0.5;}
-nav{background-color: #000;}
-.ativo{padding-top: 50px;}
-.toggle{padding: 5px;float: right;position: fixed;right: 0;padding: 2%;padding-right: 5%;padding-top: 4%;}
-ul{list-style: none;margin-right: 4%;padding-bottom: 5%;}
-ul li{display: inline-block;margin-left: 2.5%;margin-right: 2.5%;padding: 1% 2% 1% 2%;border: solid 1px #fff;background-color: #240CE8;border-radius: 5%;transition: background-color 0.3s;}
-ul li:hover{cursor: pointer;background-color: #020568}
-ul li a{text-decoration: none;color: white;font-size: 1.5em;}
-ul li a:hover{color: #fff;text-decoration: none;}
-.ativo{padding-top: 50px;}
-header .principal h1{text-align: center;color: #ffffff;margin-bottom: 1%;margin-top: 5%;text-transform: uppercase;}
-header .principal p{text-align: center;color: #ffffff;margin-bottom: 1%;text-transform: uppercase;}
-header .principal a i{color: #ffffff;width: 50px;height: 50px;border: solid 1px #ffffff;border-radius: 120px;margin: 0 auto;padding-top: 10px;transition-duration: 0.4s;transition-property: all;text-decoration: none;margin-bottom: 10%;margin-left: 1%;}
-header .principal a i:hover{color: #999999;text-decoration: none;border: solid 1px #999999}
-.library{height: 200px;background-color: black;background-image: url('../img/book.jpg');background-position: center center;background-repeat: no-repeat;background-size: 100% 100%;background-attachment: fixed;}
-main{}
-.news{text-align: center;}
-.news article{width: 250px;text-align: justify;display: inline-block;margin-left: 50px;}
-.news article img{border: solid 1px black;}
-
-.about{text-align: center;margin-bottom: 5%;}
-.about button{background-color: transparent;width: 150px;text-align: center;border: solid 1px black;padding: 10px;transition-duration: 0.3s;transition-property: background-color;}
-.about button:hover{background-color: #999}
-.collSkill{text-align: left;}
-
-.iframe{text-align: center;}
-
-footer {text-align: center;margin: 0 auto;display: block;padding-bottom: 50px;background-color: #0C68E8;color: #fff;}
-footer img{margin-bottom: 2%;width: 100px;margin-top: 5%;}
 .circles i{width: 100px; height: 100px;margin-top: 20%;text-align: center;border-radius: 100%;padding-top: 20px;}
 .circles img{width: 150px; height: 150px;margin-top: 10%;text-align: center;border-radius: 100%;}
-circles span{text-align: center;}
+.circles span{text-align: center;}
 .circles{display: block;margin: 0 auto;text-align: center;}
-.clear{clear: both;}
-.colSkill{text-align: left !important;}
-.progress{width: 70% !important;}
+.iframe{text-align: center;}
+section.about{text-align: center;}
 
-.textAreaLimit{
-    resize: vertical; max-height: 400px; min-height: 100px;
-}
 
-/*MEDIA QUERIES*/
-.toggle{z-index: 1;}
-.menu{z-index: 2;transition: opacity 0.4s;margin-right: 5%;}
-.menu a{text-decoration:none;}
-.menu a:hover{text-decoration: none;}
-.layout{z-index: 3;}
-@media screen and (max-width: 520px) {
-  .menu{display: none;}
-  nav{position: fixed;right: 5%;right: 10%;width: 100%;}
-  .englobeNav{background-color: #000;}
-  .toggle{opacity: 1;border: solid 1px #000;background-color: #000;}
-}
 
-@media screen and (min-width: 521px) {
-  ul{display: block;}
-  .toggle{display: none;visibility: hidden;}
+@media screen and (max-width: 767px) {
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 30px; height: 0; overflow: hidden;
+    }
+    .video-container iframe,
+    .video-container object,
+    .video-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 }
