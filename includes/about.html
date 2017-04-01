@@ -1,0 +1,40 @@
+<div class="container" ng-controller="aboutController">
+    <section class="about">
+        <article>
+            <h3>Sobre mim!</h3>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <p>
+                        Olá! Meu nome é Leonardo Rocha. Atualmente atuo na área de 
+                        programação, especificamente com back-end. Sou extremamente pró-ativo, 
+                        gosto de me comunicar quando vejo problemas, ajudo onde é necessário e
+                        gosto do que faço.
+                        Gosto também de um bom copo de café logo de manhã <i class="fa fa-coffee"></i>,
+                        estou sempre estudando e aprimorando meus conhecimentos. Eu poderia colocar 
+                        dezenas de qualidades e defeitos aqui, mas, acredito que vendo as habilidades abaixo
+                        você terá uma boa base sobre mim!
+                    </p>
+                </div>
+            </div>    
+        </article>
+        <article>
+            <div class="container">
+                <div ng-repeat="section in sections">
+                    <h4>{{section.section}}</h4>
+                    <div class="row">
+                        <div ng-repeat="itensSection in itensSection" ng-if="section.id === itensSection.section">
+                            <div class="col-md-5 col-md-offset-1 collSkill">
+                                <span>{{itensSection.nome}}</span>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped" style="width: {{itensSection.porcentagem}}%;">
+                                        {{itensSection.porcentagem}}%
+                                    </div>
+                                </div>
+                            </div>
+                        </div>            
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+</div>
