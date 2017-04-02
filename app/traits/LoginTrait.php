@@ -13,12 +13,12 @@ trait LoginTrait{
         return $this->campos;
     }
     
-    public function logar($email, $senha){
+    public function logar($username, $password){
         foreach ($this->getCampos() as $campo):
             $this->campo .= $campo.'=? and ';
         endforeach;
         $this->sqlCampo = rtrim($this->campo, 'and ');
-        return parent::find('first', array('conditions' => array($this->sqlCampo, $email, $senha)));
+        return parent::find('first', array('conditions' => array($this->sqlCampo, $username, $password)));
     }
     public static function deslogar($sessao){
         if(isset($_SESSION[$sessao])){

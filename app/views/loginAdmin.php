@@ -1,9 +1,4 @@
 <section class="contact">
-    <?php
-    if(isset($retorno)){
-        echo $retorno;
-    }
-    ?>
     <h3>Área administrativa</h3>
     <form class="form" method="post" action="/logar">
         <div class="row">
