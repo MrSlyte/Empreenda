@@ -13,22 +13,12 @@ if (is_null($_SESSION['UserDataId']) || empty($_SESSION['UserDataId']) || $_SESS
             <li><a href="/administradores">Administradores</a></li>
         </ul>
     </nav>
-    <section class="resumo">
-    <h3>Resumo</h3>
+    <section class="administradores">
+    <h3>Aqui vai poder cadastrar, alterar e deletar administradores.</h3>
     <div class="row">
         <div class="col-md-4">
             <div class="resumo-box">
-                4 usuários visitaram o site.
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="resumo-box">
-                4 clientes cadastrados
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="resumo-box">
-                4 administradores cadastrados
+                
             </div>
         </div>
     </div>

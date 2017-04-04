@@ -32,7 +32,7 @@
                 <div class="clear"></div>
                 <div class="principal">
                     <h1><strong>SEJA EMPREENDEDOR</strong></h1>
-                    <p>Aqui vai um subtítulo</p>
+                    <p>O negócio do século 21</p>
                     <ul>
                         <li><a href="/">CONHEÇA A INICIATIVA</a></li>
                         <li><a href="/about">CADASTRE-SE</a></li>

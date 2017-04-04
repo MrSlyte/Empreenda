@@ -3,23 +3,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Olá! Este é meu portfólio pessoal. Entre e conheça um pouco do meu trabalho, garanto que vale muito a pena.">
-        <meta property="og:url" content="https://mrslyte.github.io/Portfolio/index.html" />
-        <meta property="og:type" content="profile" />
-        <meta property="og:title" content="Leonardo Rocha - Portfólio pessoal" />
-        <meta property="og:description" content="Olá! Este é meu portfólio pessoal. Entre e conheça um pouco do meu trabalho, garanto que vale muito a pena." />
-        <meta property="og:image" content="https://mrslyte.github.io/Portfolio/assets/img/img-face.jpg" />
         <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
-        <title>Leonardo Rocha - Home</title>
+        <title>Empreenda - Painel administrativo</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
         <link href="assets/css/font-awesome.min.css" rel="stylesheet">
         <link href="assets/css/styleLayout.css" rel="stylesheet">
-        <link href="assets/css/styleHome.css" rel="stylesheet">
-        <link href="assets/css/styleForm.css" rel="stylesheet">
-        <link href="assets/css/styleError404.css" rel="stylesheet">
+        <link href="assets/css/styleAdmin.css" rel="stylesheet">
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>

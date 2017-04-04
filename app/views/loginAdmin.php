@@ -1,6 +1,11 @@
+<?php
+if(isset($logado)):
+    header("Location: /admin");
+endif;
+?>
 <section class="contact">
     <h3>Área administrativa</h3>
-    <form class="form" method="post" action="/logar">
+    <form class="form" method="post" action="/admin">
         <div class="row">
             <div class="col-md-offset-4 col-sm-offset-6 col-md-4 col-sm-6 col-xs-12">
                 <div class="form-group">

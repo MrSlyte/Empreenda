@@ -1,11 +1,13 @@
 <section class="contact">
     <h3>Preencha os campos abaixo</h3>
-    <form class="form" method="post" name="formContact">
+    <form class="form" method="post" name="formContact" action="/cadastrar">
+        <?php echo (isset($sucesso)) ? $sucesso : ''; ?>
+        <p></p>
         <div class="row">
             <div class="col-md-offset-4 col-sm-offset-6 col-md-4 col-sm-6 col-xs-12">
                 <div class="form-group">
                     <label>Nome completo:</label>
-                    <input type="text" name="Nome" class="form-control" placeholder="Digite seu nome completo" required/>
+                    <input type="text" name="nome" class="form-control" placeholder="Digite seu nome completo" required/>
                 </div>
             </div>
         </div>
@@ -13,7 +15,8 @@
             <div class="col-md-offset-4 col-sm-offset-6 col-md-4 col-sm-6 col-xs-12">
                 <div class="form-group">
                     <label>Telefone</label>
-                    <input type="text" name="telefone" class="form-control" placeholder="Digite seu telefone"/>
+                    <input type="number" name="telefone" class="form-control" placeholder="Digite seu telefone"/>
+                    <p>Digite apenas números</p>
                 </div>
             </div>
         </div>
@@ -22,7 +25,8 @@
                 <div class="form-group">
 
                     <label>Celular:</label>
-                    <input type="text" name="celular" class="form-control" placeholder="Digite seu celular"/>
+                    <input type="number" name="celular" class="form-control" placeholder="Digite seu celular"/>
+                    <p>Digite apenas números</p>
                 </div>
             </div>
         </div>

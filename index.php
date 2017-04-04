@@ -8,6 +8,5 @@ require ROOT."app/routes/form.php";
 require ROOT."app/routes/notFound.php";
 
 //PRIVATE ROUTES
-require ROOT."app/routes/adminHome.php";
-require ROOT."app/routes/logar.php";
+require ROOT."app/routes/admin.php";
 $app->run();
