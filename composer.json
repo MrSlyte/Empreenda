@@ -1,5 +1,4 @@
 {
-    
     "require": {
         "slim/slim": "2.4.2",
         "php-activerecord/php-activerecord": "^1.1"

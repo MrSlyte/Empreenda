@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit6a35903d8fe8e344acb9a0010752f89b
+class ComposerStaticInit2caeb67b7ab49bc47340261c74720fc8
 {
     public static $files = array (
         '6e60481d8c04e99474e2ba7b3658ab5a' => __DIR__ . '/..' . '/php-activerecord/php-activerecord/ActiveRecord.php',
@@ -23,7 +23,7 @@ class ComposerStaticInit6a35903d8fe8e344acb9a0010752f89b
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixesPsr0 = ComposerStaticInit6a35903d8fe8e344acb9a0010752f89b::$prefixesPsr0;
+            $loader->prefixesPsr0 = ComposerStaticInit2caeb67b7ab49bc47340261c74720fc8::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }

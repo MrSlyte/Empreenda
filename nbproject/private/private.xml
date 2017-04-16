@@ -5,8 +5,7 @@
         <group>
             <file>file:/C:/wamp64/www/empreenda/app/views/administradoresAdmin.php</file>
             <file>file:/C:/wamp64/www/empreenda/app/views/recebimentosAdmin.php</file>
-            <file>file:/C:/wamp64/www/empreenda/assets/css/styleAdmin.css</file>
-            <file>file:/C:/wamp64/www/empreenda/app/views/homeAdmin.php</file>
+            <file>file:/C:/wamp64/www/empreenda/app/classes/Admin.php</file>
             <file>file:/C:/wamp64/www/empreenda/app/routes/admin.php</file>
         </group>
     </open-files>
