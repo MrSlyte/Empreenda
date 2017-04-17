@@ -51,7 +51,6 @@ $app->get("/administradores", function () use($app) {
     $app->render('layoutAdmin.php', $dados);
 });
 //</editor-fold>
-
 // <editor-fold defaultstate="collapsed" desc="Logar">
 $app->post("/admin", function () use($app) {
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
@@ -94,25 +93,104 @@ $app->post("/admin", function () use($app) {
     $app->render('layoutAdmin.php', $dados);
 });
 //</editor-fold>
-
 // <editor-fold defaultstate="collapsed" desc="Ações do admin">
-// <editor-fold defaultstate="collapsed" desc="Editar">
-$app->get("/administradores/editar/:id", function ($id) use($app) {
+
+// <editor-fold defaultstate="collapsed" desc="GET Cadastrar">
+$app->get("/cadastrar", function () use($app) {
     if (isset($_SESSION["logado"])) {
         $dados = array(
-            'pagina' => 'administradoresAdmin',
-            'logado' => true,
-            'dadosAmin' => \app\classes\Admin::RetornaAdmin(),
+            'pagina' => 'cadastrarAdmin',
+            'logado' => true
         );
     } else {
         $dados = array(
-            'pagina' => 'loginAdmin',
-            'logado' => false
+            'pagina' => 'loginAdmin'
         );
     }
     $app->render('layoutAdmin.php', $dados);
 });
 //</editor-fold>
+// <editor-fold defaultstate="collapsed" desc="POST Cadastrar">
+$app->post("/administradores/cadastrar", function () use($app) {
+    if (isset($_SESSION["logado"])) {
+        $nomeCompleto = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
+        $username = filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_STRING);
+        $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
+        try {
+            $classeAdmin = new \app\classes\Admin();
+            $classeAdmin->setAdmin_name($nomeCompleto);
+            $classeAdmin->setAdmin_username($username);
+            $classeAdmin->setAdmin_password($senha);
+            $classeAdmin->setAdmin_ativo(1);
+            $classeAdmin->setAdmin_excl(0);
+            $classeAdmin->CadastrarAdmin();
+            $app->redirect("/administradores");
+        } catch (\Exception $e) {
+            $dados = array(
+                'pagina' => 'cadastrarAdmin',
+                'msg' => $e->getMessage()
+            );
+        }
+    } else {
+        $dados = array(
+            'pagina' => 'loginAdmin'
+        );
+    }
+    $app->render('layoutAdmin.php', $dados);
+});
+//</editor-fold>
+
+// <editor-fold defaultstate="collapsed" desc="GET Editar">
+$app->get("/editar/:id", function ($id) use($app) {
+    if (isset($_SESSION["logado"])) {
+        if (is_numeric($id)):
+            $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
+            
+            $dados = array(
+                'pagina' => 'cadastrarAdmin',
+                'logado' => true,
+                'dadosAdmin' => \app\classes\Admin::RetornaUmAdmin($id)
+            );
+        else:
+            $dados = array(
+                'pagina' => 'administradoresAdmin',
+                'logado' => true,
+                'dadosAdmin' => \app\classes\Admin::RetornaAdmin(),
+            );
+        endif;
+    } else {
+        $dados = array(
+            'pagina' => 'loginAdmin'
+        );
+    }
+    $app->render('layoutAdmin.php', $dados);
+});
+//</editor-fold>
+// <editor-fold defaultstate="collapsed" desc="POST Editar">
+$app->post("/administradores/editar/:id", function ($id) use($app) {
+    if (isset($_SESSION["logado"])) {
+        $nomeCompleto = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
+        $username = filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_STRING);
+        $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
+        try {
+            $classeAdmin = new \app\classes\Admin();
+            $classeAdmin->EditarAdmin($id, $nomeCompleto, $username, $senha);
+            $app->redirect("/administradores");
+        } catch (\Exception $e) {
+            $dados = array(
+                'pagina' => 'cadastrarAdmin',
+                'msg' => $e->getMessage()
+            );
+        }
+    } else {
+        $dados = array(
+            'pagina' => 'loginAdmin'
+        );
+    }
+    $app->render('layoutAdmin.php', $dados);
+});
+//</editor-fold>
+
 // <editor-fold defaultstate="collapsed" desc="Bloquear">
 $app->get("/administradores/bloquear/:id", function ($id) use($app) {
     if (isset($_SESSION["logado"])) {
@@ -141,6 +219,7 @@ $app->get("/administradores/desbloquear/:id", function ($id) use($app) {
     $app->render('layoutAdmin.php', $dados);
 });
 //</editor-fold>
+
 // <editor-fold defaultstate="collapsed" desc="Excluir">
 $app->get("/administradores/excluir/:id", function ($id) use($app) {
     if (isset($_SESSION["logado"])) {
@@ -153,7 +232,6 @@ $app->get("/administradores/excluir/:id", function ($id) use($app) {
                 'pagina' => 'administradoresAdmin',
                 'logado' => true,
                 'dadosAdmin' => \app\classes\Admin::RetornaAdmin(),
-                'msg' => "O id não é numérico e não está entre 1 e 1000. O Id é: ".$id
             );
         endif;
     }else {

@@ -5,12 +5,12 @@ namespace app\classes;
 class Admin extends \app\models\Admin {
 
 // <editor-fold defaultstate="collapsed" desc="Properties">
-    private $admin_id = array();
-    private $admin_name = array();
-    private $admin_password = array();
-    private $admin_username = array();
-    private $admin_ativo = array();
-    private $admin_excl = array();
+    private $admin_id = 0;
+    private $admin_name = "";
+    private $admin_password = "";
+    private $admin_username = "";
+    private $admin_ativo = 0;
+    private $admin_excl = 0;
 
 //</editor-fold>
 // <editor-fold defaultstate="collapsed" desc="Getters and Setters">
@@ -24,40 +24,48 @@ class Admin extends \app\models\Admin {
     }
 
     function getAdmin_ativo() {
-        return ($this->admin_ativo == '1' ? "Ativo" : "Inativo");
+        return $this->admin_ativo;
     }
 
     function getAdmin_excl() {
         return $this->admin_excl;
     }
-
-    // </editor-fold>
-    // <editor-fold defaultstate="collapsed" desc="Setters">
-    function setAdmin_id($admin_id) {
-        array_push($this->admin_id, $admin_id);
+    function getAdmin_password() {
+        return $this->admin_password;
     }
 
+    function getAdmin_username() {
+        return $this->admin_username;
+    }
+
+        // </editor-fold>
+    // <editor-fold defaultstate="collapsed" desc="Setters">
+    
+    function setAdmin_id($admin_id) {
+        $this->admin_id = $admin_id;
+    }
+   
     function setAdmin_name($admin_name) {
-        array_push($this->admin_name, $admin_name);
+        $this->admin_name = $admin_name;
     }
 
     function setAdmin_password($admin_password) {
-        array_push($this->admin_password, $admin_password);
+        $this->admin_password = $admin_password;
     }
 
     function setAdmin_username($admin_username) {
-        array_push($this->admin_username, $admin_username);
+        $this->admin_username = $admin_username;
     }
 
     function setAdmin_ativo($admin_ativo) {
-        array_push($this->admin_ativo, $admin_ativo);
+        $this->admin_ativo = $admin_ativo;
     }
 
     function setAdmin_excl($admin_excl) {
-        array_push($this->admin_excl, $admin_excl);
+        $this->admin_excl = $admin_excl;
     }
 
-    // </editor-fold>
+        // </editor-fold>
 
 // </editor-fold>
 
@@ -67,14 +75,14 @@ class Admin extends \app\models\Admin {
     public function CadastrarAdmin() {
         try {
             $atributos = [
-                'cliente_nome' => $this->nomeCompleto,
-                'cliente_telefone' => $this->telefone,
-                'cliente_celular' => $this->celular,
-                'cliente_email' => $this->email,
-                'cliente_trabalhando' => $this->trabalhando
+                'admin_name' => $this->getAdmin_name(),
+                'admin_username' => $this->getAdmin_username(),
+                'admin_password' => $this->getAdmin_password(),
+                'admin_ativo' => $this->getAdmin_ativo(),
+                'admin_excl' => $this->getAdmin_excl()
             ];
-            parent::cadastrar($atributos);
-            return true;
+            
+            return print_r(parent::cadastrar($atributos));
         } catch (\ActiveRecord\ActiveRecordException $e) {
             return $e->getMessage();
         } catch (\Exception $e) {
@@ -88,6 +96,16 @@ class Admin extends \app\models\Admin {
     public static function RetornaAdmin() {
         try {
             return parent::where('admin_excl', '0', 'all');
+        } catch (\ActiveRecord\ActiveRecordException $e) {
+            throw new Exception("Não foi possível obter as informações do banco de dados. " . $e->getMessage());
+        }
+    }
+    //</editor-fold>
+    
+    // <editor-fold defaultstate="collapsed" desc="RetornaUmAdmin">
+    public static function RetornaUmAdmin($id) {
+        try {
+            return parent::where('admin_id', $id, 'first');
         } catch (\ActiveRecord\ActiveRecordException $e) {
             throw new Exception("Não foi possível obter as informações do banco de dados. " . $e->getMessage());
         }
@@ -114,20 +132,25 @@ class Admin extends \app\models\Admin {
     }
     //</editor-fold>
     
-    // <editor-fold defaultstate="collapsed" desc="EditarAdmin">
-    public static function EditarAdmin() {
-        try {
-            return parent::listar();
-        } catch (\ActiveRecord\ActiveRecordException $e) {
-            throw new Exception("Não foi possível obter as informações do banco de dados. " . $e->getMessage());
-        }
-    }
-    //</editor-fold>
-    
     // <editor-fold defaultstate="collapsed" desc="ExcluirAdmin">
     public static function ExcluirAdmin($id) {
         try {
             return parent::atualizar($id, ["admin_excl" => 1, "admin_ativo" => 0]);
+        } catch (\ActiveRecord\ActiveRecordException $e) {
+            throw new Exception("Não foi possível excluir um registro do banco de dados \n com o método ExcluirAdmin em \app\classes\Admin. " . $e->getMessage());
+        }
+    }
+    //</editor-fold>
+    
+    // <editor-fold defaultstate="collapsed" desc="EditarAdmin">
+    public static function EditarAdmin($id, $name, $username, $password) {
+        try {
+            $attributes = [
+                "admin_name" => $name,
+                "admin_username" => $username,
+                "admin_password" => $password
+                ];
+            return parent::atualizar($id, $attributes);
         } catch (\ActiveRecord\ActiveRecordException $e) {
             throw new Exception("Não foi possível excluir um registro do banco de dados \n com o método ExcluirAdmin em \app\classes\Admin. " . $e->getMessage());
         }

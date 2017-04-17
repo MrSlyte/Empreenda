@@ -8,9 +8,9 @@
         <title>Empreenda - Painel administrativo</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-        <link href="assets/css/font-awesome.min.css" rel="stylesheet">
-        <link href="assets/css/styleLayout.css" rel="stylesheet">
-        <link href="assets/css/styleAdmin.css" rel="stylesheet">
+        <link href="<?php echo site_url() ?>assets/css/font-awesome.min.css" rel="stylesheet">
+        <link href="<?php echo site_url() ?>assets/css/styleLayout.css" rel="stylesheet">
+        <link href="<?php echo site_url() ?>assets/css/styleAdmin.css" rel="stylesheet">
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -19,7 +19,7 @@
     <body>
         <header>
             <div class="container">
-                <div class="logo"><img src="assets/img/logo.svg" alt="Logo site header" title="Logo Empreenda"></div>
+                <div class="logo"><img src="<?php echo site_url() ?>assets/img/logo.svg" alt="Logo site header" title="Logo Empreenda"></div>
             </div>
         </header>
         <main>
@@ -28,7 +28,7 @@
             </div>
         </main>
         <footer>
-            <img src="assets/img/logo.svg" alt="Logo site footer" title="Logo Empreenda"><br>
+            <img src="<?php echo site_url() ?>assets/img/logo.svg" alt="Logo site footer" title="Logo Empreenda"><br>
             <span>2017 - Todos os direitos reservados.</span>
         </footer>
         <!--LIBRARYS-->
@@ -36,6 +36,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
         <!--JQUERY-->
-        <script src="assets/js/Jquery/function.js"></script>
+        <script src="<?php echo site_url() ?>assets/js/Jquery/function.js"></script>
     </body>
 </html>
